@@ -241,14 +241,30 @@ a:hover{
 
 /* Responsive Design */
 
-@media screen and (max-width: 999px){
+@media screen and (min-width: 1025px){
+    
+    .list .item .content{
+        left: 60px;
+    }
+
+    .content .title, .content .name{
+        font-size: 72px;
+    }
+
+    .content .des{
+        font-size: 20px;
+    }
+
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px){
     
     .list .item .content{
         left: 50px;
     }
 
     .content .title, .content .name{
-        font-size: 70px;
+        font-size: 48px;
     }
 
     .content .des{
@@ -257,7 +273,7 @@ a:hover{
 
 }
 
-@media screen and (max-width: 480px){
+@media screen and (max-width: 768px){
     
     .list .item .content{
         top: 40%;
@@ -268,9 +284,10 @@ a:hover{
     }
 
     .content .btn button{
-        padding: 10px 15px;
-        font-size: 14px;
+        padding: 8px 13px;
+        font-size: 12px;
     }
 }
+
 
 
