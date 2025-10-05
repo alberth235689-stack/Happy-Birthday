@@ -257,7 +257,7 @@ a:hover{
 
 }
 
-@media screen and (max-width: 690px){
+@media screen and (max-width: 480px){
     
     .list .item .content{
         top: 40%;
@@ -272,3 +272,4 @@ a:hover{
         font-size: 14px;
     }
 }
+
