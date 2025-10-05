@@ -264,7 +264,7 @@ a:hover{
     }
 
     .content .title, .content .name{
-        font-size: 45px;
+        font-size: 24px;
     }
 
     .content .btn button{
@@ -272,4 +272,5 @@ a:hover{
         font-size: 14px;
     }
 }
+
 
