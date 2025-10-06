@@ -1,91 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday</title>
-
-    <link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="carousel">
+  <div class="carousel">
 
-        <div class="list">
+    <div class="list">
 
-            <div class="item" style="background-image: url(img/Untitled-7.jpg);">
-                <div class="content">
-                    <div class="name">SELMAT ULANG TAHUN ❤</div>
-                </div>
-            </div>
-
-            <div class="item" style="background-image: url(img/Untitled-2.jpg);">
-                
-                <div class="content">
-                    <div class="title">Mayasa Karenina Maajid</div>
-                    <div class="name">18 Oktober 2025</div>
-                    <div class="des">From : Mamas</div>
-                </div>
-
-            </div>
-
-            <div class="item" style="background-image: url(img/Untitled-3.jpg);">
-
-                <div class="content">
-                    <div class="title">Happy Birthday Sayangku</div>
-                    <div class="name">❤❤❤</div>
-                    <div class="des">Semoga panjang umur sehat selalu, apapun yang sayang cita-citakan cepet tersemogakan dan apapun yang menjadi impian e sayang bisa terwujud 1 per 1. Sayang dilancarkan dan dimudahkan rezekinya ya, aamiin🤲🏻</div>
-                </div>
-
-            </div>
-
-            <div class="item" style="background-image: url(img/Untitled-4.jpg);">
-                
-                <div class="content">
-                    <div class="name">Terimakasih</div>
-                    <div class="des">Sudah menjadi support system e mamas❤ mamas ndak bisa ngomong banyak pokoknya apapun itu do'anya sayang, semoga tercapai 1 per 1 aamiin☺🤲🏻 semoga hal-hal baik selalu menghampiri sayang❤</div>
-                </div>
-
-            </div>
-
-            <div class="item" style="background-image: url(img/Untitled-5.jpg);">
-                
-                <div class="content">
-                    <div class="des">Semoga sayang selalu dikelilingi orang-orang baik❤ Semoga cinta dan sayang nya adek selalu utuh buat mamas dan akan terus bertambah❤ Maaf jika mamas sering melakukan banyak kesalahan ndek adek🥹</div>
-                </div>
-
-            </div>
-
-            <div class="item" style="background-image: url(img/Untitled-6.jpg);">
-                
-                <div class="content">
-                    <div class="name">Adek selalu gandeng tangan mamas ya</div>
-                    <div class="des">I Love You Cantik ❤ temani proses mamas❤ mamas sayang adek❤</div>
-                </div>
-
-            </div>
-
+      <div class="item" style="background-image: url('img/Untitled-7.jpg');">
+        <div class="content">
+          <div class="name">SELAMAT ULANG TAHUN 💖</div>
         </div>
+      </div>
 
-        <!--next prev button-->
-        <div class="arrows">
-            <button class="prev"><</button>
-            <button class="next">></button>
+      <div class="item" style="background-image: url('img/Untitled-2.jpg');">
+        <div class="content">
+          <div class="title">Mayasa Karenina Maajid</div>
+          <div class="name">18 Oktober 2025</div>
+          <div class="des">From : Mamas</div>
         </div>
+      </div>
 
+      <div class="item" style="background-image: url('img/Untitled-3.jpg');">
+        <div class="content">
+          <div class="title">Happy Birthday Sayangku 💕</div>
+          <div class="name">❤❤❤</div>
+          <div class="des">Semoga panjang umur, sehat selalu, dan semua impianmu tercapai satu per satu. Dilancarkan rezekinya, ya sayang 🤍</div>
+        </div>
+      </div>
 
-        <!-- time running -->
-        <div class="timeRunning"></div>
+      <div class="item" style="background-image: url('img/Untitled-4.jpg');">
+        <div class="content">
+          <div class="name">Terima kasih</div>
+          <div class="des">Sudah jadi support system mamas 💞 Semoga semua doa sayang terkabul dan kebahagiaan selalu menyertai kamu.</div>
+        </div>
+      </div>
 
+      <div class="item" style="background-image: url('img/Untitled-5.jpg');">
+        <div class="content">
+          <div class="des">Semoga sayang selalu dikelilingi cinta dan orang-orang baik. Maaf jika mamas masih banyak salah 🥺</div>
+        </div>
+      </div>
+
+      <div class="item" style="background-image: url('img/Untitled-6.jpg');">
+        <div class="content">
+          <div class="name">Gandeng terus tangan mamas ya 💍</div>
+          <div class="des">I Love You Cantik 💗 Temani proses mamas selalu.</div>
+        </div>
+      </div>
     </div>
 
-        <div>
-            <audio controls>
-            <source src="audio/happybirthday.mp3" type="audio/mpeg">
-        </audio>
+    <div class="arrows">
+      <button class="prev">❮</button>
+      <button class="next">❯</button>
     </div>
 
-    <script src="app.js"></script>
+    <div class="timeRunning"></div>
+
+  </div>
+
+  <audio id="bgMusic" src="audio/happybirthday.mp3" type="audio/mpeg"></audio>
+
+  <script src="app.js"></script>
+  <script>
+    // Auto play background music
+    window.addEventListener('click', () => {
+      const music = document.getElementById('bgMusic');
+      if (music.paused) music.play();
+    });
+  </script>
 </body>
 </html>
