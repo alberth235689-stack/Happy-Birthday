@@ -144,6 +144,48 @@ body::before {
   to { width: 100%; }
 }
 
+/* ===== Gambar default untuk desktop/laptop ===== */
+.item:nth-child(1) {
+  background-image: url('img/Untitled-7.jpg');
+}
+.item:nth-child(2) {
+  background-image: url('img/Untitled-2.jpg');
+}
+.item:nth-child(3) {
+  background-image: url('img/Untitled-3.jpg');
+}
+.item:nth-child(4) {
+  background-image: url('img/Untitled-4.jpg');
+}
+.item:nth-child(5) {
+  background-image: url('img/Untitled-5.jpg');
+}
+.item:nth-child(6) {
+  background-image: url('img/Untitled-6.jpg');
+}
+
+/* ===== Gambar khusus untuk HP (layar vertikal ≤768px) ===== */
+@media (max-width: 768px) {
+  .item:nth-child(1) {
+    background-image: url('img/mobile-7.jpg');
+  }
+  .item:nth-child(2) {
+    background-image: url('img/mobile-2.jpg');
+  }
+  .item:nth-child(3) {
+    background-image: url('img/mobile-3.jpg');
+  }
+  .item:nth-child(4) {
+    background-image: url('img/mobile-4.jpg');
+  }
+  .item:nth-child(5) {
+    background-image: url('img/mobile-5.jpg');
+  }
+  .item:nth-child(6) {
+    background-image: url('img/mobile-6.jpg');
+  }
+}
+
 /* ==== RESPONSIVE ==== */
 @media (max-width: 768px) {
   .content {
@@ -187,4 +229,5 @@ body::before {
     font-size: 18px;
   }
 }
+
 
