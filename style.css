@@ -101,7 +101,7 @@ body::before {
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 20px;
+  gap: 10px 10px;
   z-index: 2;
 }
 
@@ -157,7 +157,6 @@ body::before {
     font-size: 14px;
   }
   .arrows {
-    bottom: 20%;
     bottom: 30px; /* tombol naik lebih tinggi */
   }
 }
@@ -177,7 +176,6 @@ body::before {
     font-size: 13px;
   }
   .arrows {
-    bottom: 16%;
     bottom: 35px; /* naik lagi di layar kecil */
   }
   .arrows button {
@@ -186,5 +184,6 @@ body::before {
     font-size: 18px;
   }
 }
+
 
 
