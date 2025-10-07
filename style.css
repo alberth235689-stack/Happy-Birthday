@@ -144,36 +144,43 @@ body::before {
 /* ==== RESPONSIVE ==== */
 @media (max-width: 768px) {
   .content {
-    padding: 15px 18px;
-    bottom: 10%;
+    bottom: 18%; /* sebelumnya 10% — naikkan posisi */
+    padding: 14px 18px;
   }
   .content .title {
-    font-size: 32px;
-  }
-  .content .name {
-    font-size: 20px;
-  }
-  .content .des {
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 480px) {
-  .content {
-    bottom: 8%;
-  }
-  .content .title {
-    font-size: 28px;
+    font-size: 30px;
   }
   .content .name {
     font-size: 18px;
   }
   .content .des {
+    font-size: 14px;
+  }
+  .arrows {
+    bottom: 20px; /* tombol naik lebih tinggi */
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    bottom: 22%; /* naik lebih tinggi untuk HP kecil */
+    padding: 12px 15px;
+  }
+  .content .title {
+    font-size: 26px;
+  }
+  .content .name {
+    font-size: 16px;
+  }
+  .content .des {
     font-size: 13px;
   }
+  .arrows {
+    bottom: 25px; /* naik lagi di layar kecil */
+  }
   .arrows button {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
   }
 }
