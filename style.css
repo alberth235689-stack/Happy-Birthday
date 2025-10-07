@@ -144,7 +144,7 @@ body::before {
 /* ==== RESPONSIVE ==== */
 @media (max-width: 768px) {
   .content {
-    bottom: 18%; /* sebelumnya 10% — naikkan posisi */
+    bottom: 28%; /* sebelumnya 10% — naikkan posisi */
     padding: 14px 18px;
   }
   .content .title {
@@ -157,13 +157,13 @@ body::before {
     font-size: 14px;
   }
   .arrows {
-    bottom: 20px; /* tombol naik lebih tinggi */
+    bottom: 30px; /* tombol naik lebih tinggi */
   }
 }
 
 @media (max-width: 480px) {
   .content {
-    bottom: 22%; /* naik lebih tinggi untuk HP kecil */
+    bottom: 32%; /* naik lebih tinggi untuk HP kecil */
     padding: 12px 15px;
   }
   .content .title {
@@ -176,7 +176,7 @@ body::before {
     font-size: 13px;
   }
   .arrows {
-    bottom: 25px; /* naik lagi di layar kecil */
+    bottom: 35px; /* naik lagi di layar kecil */
   }
   .arrows button {
     width: 38px;
@@ -184,3 +184,4 @@ body::before {
     font-size: 18px;
   }
 }
+
