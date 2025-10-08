@@ -72,7 +72,7 @@ body::before {
   color: #ffd2e2;
   margin-bottom: 6px;
   opacity: 0;
-  animation: fadeIn 1s ease forwards;
+  animation: fadeIn 2s ease forwards;
 }
 
 .content .name {
@@ -81,7 +81,7 @@ body::before {
   font-weight: 500;
   margin-bottom: 8px;
   opacity: 0;
-  animation: fadeIn 1s ease 0.3s forwards;
+  animation: fadeIn 2s ease 0.6s forwards;
 }
 
 .content .des {
@@ -89,7 +89,7 @@ body::before {
   line-height: 1.6;
   color: #fff;
   opacity: 0;
-  animation: fadeIn 1s ease 0.6s forwards;
+  animation: fadeIn 2s ease 1.2s forwards;
 }
 
 /* ==== ANIMASI TEKS ==== */
@@ -124,20 +124,20 @@ body::before {
 
 /* Saat slide aktif */
 .item.active .content .title {
-  animation: fadeIn 1s ease forwards;
+  animation: fadeIn 2s ease forwards;
 }
 .item.active .content .name {
-  animation: fadeIn 1.2s ease forwards;
+  animation: fadeIn 2.4s ease forwards;
 }
 .item.active .content .des {
-  animation: fadeIn 1.4s ease forwards;
+  animation: fadeIn 2.8s ease forwards;
 }
 
 /* Saat slide nonaktif */
 .item.fade-out .content .title,
 .item.fade-out .content .name,
 .item.fade-out .content .des {
-  animation: fadeOut 0.8s ease forwards;
+  animation: fadeOut 1.6s ease forwards;
 }
 
 
@@ -179,7 +179,7 @@ body::before {
   height: 4px;
   background: linear-gradient(90deg, #ff6ec7, #ffb6f0);
   width: 0%;
-  animation: progress 5s linear infinite;
+  animation: progress 10s linear infinite;
   z-index: 2;
 }
 
@@ -231,6 +231,7 @@ body::before {
     font-size: 18px;
   }
 }
+
 
 
 
