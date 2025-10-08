@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <!-- Countdown dan tombol buka -->
+  <!-- Tampilan Awal -->
   <div id="intro">
     <div id="countdown">
       <h2>Siap-siap ya sayang 💕</h2>
@@ -19,8 +19,11 @@
     <button id="openBtn" disabled>Buka Sekarang 💝</button>
   </div>
 
-  <!-- Halaman utama (disembunyikan dulu) -->
-  <div class="carousel" id="mainContent" style="display:none;">
+  <!-- Partikel Romantis -->
+  <div id="particles"></div>
+
+  <!-- Halaman Utama -->
+  <div class="carousel" id="mainContent">
     <div class="list">
       <div class="item active" style="background-image: url('img/mobile-7.jpg');">
         <div class="content">
@@ -73,6 +76,8 @@
   </div>
 
   <audio id="bgMusic" src="audio/happybirthday.mp3" type="audio/mpeg" loop></audio>
+  <audio id="dingSound" src="audio/ding.mp3" type="audio/mpeg"></audio>
+
   <script src="app.js"></script>
 </body>
 </html>
