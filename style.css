@@ -35,11 +35,11 @@ body::before {
   z-index: 0;
 }
 
-/* ==== Intro (countdown & tombol buka) ==== */
+/* ==== Intro (Countdown & Tombol) ==== */
 #intro {
-  position: absolute;
+  position: fixed;
   inset: 0;
-  background: radial-gradient(circle at center, #ffeff7 0%, #ffc1d3 100%);
+  background: radial-gradient(circle at center, #ffe5f0 0%, #ffb6c1 100%);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -48,17 +48,18 @@ body::before {
   z-index: 10;
   color: #b03060;
   font-family: 'Poppins', sans-serif;
+  transition: opacity 1s ease, filter 1.5s ease;
 }
 
 #countdown h2 {
   font-family: 'Great Vibes', cursive;
-  font-size: 40px;
+  font-size: 42px;
   color: #ff6b9a;
+  margin-bottom: 10px;
 }
 
 #timer {
   font-size: 28px;
-  margin-top: 10px;
 }
 
 #openBtn {
@@ -81,6 +82,57 @@ body::before {
   background: #ffb6c1;
   cursor: not-allowed;
 }
+
+/* ==== Partikel Romantis ==== */
+#particles {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0;
+  animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-120vh) scale(0.8);
+    opacity: 0;
+  }
+}
+
+
+/* ==== Efek transisi romantis ==== */
+.fade-out {
+  opacity: 0;
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+/* Saat main content muncul dengan lembut */
+#mainContent {
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+}
+#mainContent.show {
+  opacity: 1;
+}
+
 
 /* ==== Carousel ==== */
 .carousel {
@@ -213,6 +265,62 @@ body::before {
 }
 
 /* ==== Responsive ==== */
+
+/* ==== Intro Fade ==== */
+#intro {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, #ffb6c1, #ff6ec7, #a40058);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  z-index: 10;
+  transition: opacity 1.2s ease, visibility 1.2s ease;
+}
+
+#intro.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+#intro h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 36px;
+  margin-bottom: 12px;
+  color: #fff0f6;
+}
+
+#intro #timer {
+  font-size: 28px;
+  font-weight: 600;
+  color: #ffd9ec;
+  margin-bottom: 18px;
+}
+
+#intro button {
+  background: linear-gradient(90deg, #ff8da1, #ffb6f0);
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  padding: 10px 24px;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 6px 20px rgba(255, 182, 193, 0.4);
+}
+#intro button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+#intro button:hover:enabled {
+  transform: scale(1.05);
+  background: linear-gradient(90deg, #ff9ebc, #ffc9f2);
+}
+
+
 @media (max-width: 768px) {
   .content { bottom: 24%; padding: 14px 18px; }
   .content .title { font-size: 30px; }
