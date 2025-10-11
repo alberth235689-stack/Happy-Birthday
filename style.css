@@ -27,7 +27,7 @@ html, body {
 
 #countdown h2 {
   font-family: 'Alex Brush', cursive;
-  font-size: 42px;
+  font-size: 36px;
   color: #fff0f6;
   margin-bottom: 10px;
 }
@@ -89,24 +89,24 @@ html, body {
   transform: translate(-50%, 0);
 }
 
-.item.top .content { top: 10%; }
+.item.top .content { top: 8%; }
 .item.bottom .content { bottom: 15%; }
 
 /* ==== Text Style ==== */
 .content .title {
   font-family: 'Alex Brush', cursive;
-  font-size: 42px;
+  font-size: 46px;
   color: #ffd2e2;
   margin-bottom: 10px;
 }
 .content .name {
-  font-size: 22px;
+  font-size: 24px;
   color: #fff0f6;
   font-weight: 500;
   margin-bottom: 6px;
 }
 .content .des {
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.6;
   color: #fff;
 }
@@ -186,5 +186,6 @@ html, body {
   0% { transform: translateY(0); opacity: 1; }
   100% { transform: translateY(-110vh); opacity: 0; }
 }
+
 
 
