@@ -117,7 +117,7 @@ prev.addEventListener('click', () => {
 function restartCarousel() {
   interval = setInterval(() => {
     nextSlide();
-  }, 10000);
+  }, 11000);
 }
 
 function resetProgressAnimation() {
@@ -152,3 +152,4 @@ function startParticles() {
     setTimeout(() => particle.remove(), duration * 1000);
   }, 400);
 }
+
