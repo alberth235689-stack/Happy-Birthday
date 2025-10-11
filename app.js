@@ -1,124 +1,154 @@
-const items = document.querySelectorAll('.item');
-const next = document.querySelector('.next');
-const prev = document.querySelector('.prev');
 const intro = document.getElementById('intro');
 const openBtn = document.getElementById('openBtn');
+const timerDisplay = document.getElementById('timer');
 const mainContent = document.getElementById('mainContent');
-const music = document.getElementById('bgMusic');
-const ding = document.getElementById('dingSound');
-const timerEl = document.getElementById('timer');
+const bgMusic = document.getElementById('bgMusic');
+const dingSound = document.getElementById('dingSound');
+const timeRunning = document.querySelector('.timeRunning');
 const particlesContainer = document.getElementById('particles');
-const timeBar = document.querySelector('.timeRunning');
 
-let index = 0;
-let autoInterval;
-let timeBarInterval;
-let progress = 0;
+let countdownTime = 10;
+let timer;
 
-// === Countdown Intro ===
-let timeLeft = 10;
-const countdown = setInterval(() => {
-  timeLeft--;
-  timerEl.textContent = `00:${timeLeft < 10 ? '0' + timeLeft : timeLeft}`;
-  if (timeLeft <= 0) {
-    clearInterval(countdown);
-    openBtn.disabled = false;
-    openBtn.textContent = "Buka Sekarang 💝";
-  }
-}, 1000);
+// === Countdown ===
+function startCountdown() {
+  timer = setInterval(() => {
+    countdownTime--;
+    const seconds = countdownTime < 10 ? '0' + countdownTime : countdownTime;
+    timerDisplay.textContent = `00:${seconds}`;
 
-// === Efek buka halaman utama ===
+    if (countdownTime <= 0) {
+      clearInterval(timer);
+      timerDisplay.textContent = "00:00";
+      openBtn.disabled = false;
+      openBtn.classList.add('ready');
+
+      // mainkan suara ding
+      dingSound.currentTime = 0;
+      dingSound.volume = 0.8;
+      dingSound.play().catch(() => {});
+    }
+  }, 1000);
+}
+startCountdown();
+
+// === Buka halaman utama ===
 openBtn.addEventListener('click', () => {
-  ding.play();
-  intro.classList.add('fade-out');
+  // efek suara ding lagi saat dibuka
+  dingSound.currentTime = 0;
+  dingSound.volume = 0.8;
+  dingSound.play().catch(() => {});
 
+  intro.classList.add('fade-out');
   setTimeout(() => {
     intro.style.display = 'none';
     mainContent.classList.add('show');
-    music.play().catch(() => {});
+    bgMusic.play().catch(() => {});
     startParticles();
-    startSlideShow(); // mulai slideshow setelah transisi
-  }, 1200);
+    startCarousel();
+  }, 1500);
 });
 
-// === Fungsi Slide Show ===
-function showSlide(n) {
+// === Carousel ===
+const items = document.querySelectorAll('.item');
+const next = document.querySelector('.next');
+const prev = document.querySelector('.prev');
+let active = 0;
+let interval;
+let isTransitioning = false;
+
+function setActive(index) {
   items.forEach((item, i) => {
     item.classList.remove('active');
-    if (i === n) item.classList.add('active');
+    if (i === index) item.classList.add('active');
   });
 }
 
-// next / prev
-function nextSlide() {
-  index = (index + 1) % items.length;
-  showSlide(index);
-  resetProgress();
+function startCarousel() {
+  setActive(active);
+  resetProgressAnimation();
+
+  interval = setInterval(() => {
+    nextSlide();
+  }, 10000); // tiap 10 detik
 }
+
+function nextSlide() {
+  if (isTransitioning) return;
+  isTransitioning = true;
+
+  active++;
+  if (active >= items.length) active = 0;
+
+  resetProgressAnimation();
+
+  setTimeout(() => {
+    setActive(active);
+    isTransitioning = false;
+  }, 300);
+}
+
 function prevSlide() {
-  index = (index - 1 + items.length) % items.length;
-  showSlide(index);
-  resetProgress();
+  if (isTransitioning) return;
+  isTransitioning = true;
+
+  active--;
+  if (active < 0) active = items.length - 1;
+
+  resetProgressAnimation();
+
+  setTimeout(() => {
+    setActive(active);
+    isTransitioning = false;
+  }, 300);
 }
 
 next.addEventListener('click', () => {
+  clearInterval(interval);
   nextSlide();
+  restartCarousel();
 });
 prev.addEventListener('click', () => {
+  clearInterval(interval);
   prevSlide();
+  restartCarousel();
 });
 
-// === Progress bar sinkron ===
-function startSlideShow() {
-  showSlide(index);
-  startProgress();
-  autoInterval = setInterval(() => {
+function restartCarousel() {
+  interval = setInterval(() => {
     nextSlide();
-  }, 10000); // ganti tiap 10 detik
+  }, 10000);
 }
 
-function startProgress() {
-  progress = 0;
-  timeBar.style.width = '0%';
-  clearInterval(timeBarInterval);
-  timeBarInterval = setInterval(() => {
-    progress += 1; // 100 langkah dalam 10 detik (100ms per langkah)
-    timeBar.style.width = `${progress}%`;
-    if (progress >= 100) {
-      progress = 0;
-      timeBar.style.width = '0%';
-    }
-  }, 100);
+function resetProgressAnimation() {
+  timeRunning.style.animation = 'none';
+  timeRunning.offsetHeight; // reflow
+  setTimeout(() => {
+    timeRunning.style.animation = 'progress 10s linear';
+  }, 1000); // progress mulai setelah fade selesai
 }
 
-function resetProgress() {
-  clearInterval(autoInterval);
-  clearInterval(timeBarInterval);
-  timeBar.style.width = '0%';
-  startProgress();
-  autoInterval = setInterval(nextSlide, 10000);
-}
-
-// === Partikel romantis ===
+// === Efek Partikel Romantis ===
 function startParticles() {
   setInterval(() => {
     const particle = document.createElement('div');
     particle.classList.add('particle');
-    
-    const size = Math.random() * 12 + 8;
+
+    const size = Math.random() * 10 + 6;
     const left = Math.random() * 100;
-    const duration = Math.random() * 8 + 6;
-    const color = Math.random() > 0.5 ? 'rgba(255,182,193,0.8)' :
-                  Math.random() > 0.5 ? 'rgba(255,240,245,0.9)' :
-                  'rgba(255,105,180,0.6)';
-    
+    const duration = Math.random() * 6 + 6;
+    const color = Math.random() > 0.5
+      ? 'rgba(255,182,193,0.8)'  // pink lembut
+      : 'rgba(255,240,245,0.9)'; // putih lembut
+
     particle.style.width = `${size}px`;
     particle.style.height = `${size}px`;
     particle.style.left = `${left}%`;
     particle.style.background = color;
     particle.style.animationDuration = `${duration}s`;
+    particle.style.opacity = 0.9;
+
     particlesContainer.appendChild(particle);
-    
     setTimeout(() => particle.remove(), duration * 1000);
-  }, 350);
+  }, 400);
 }
